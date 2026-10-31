@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { MouseEvent as ReactMouseEvent } from 'react'
 import { categories, store } from './data/store'
 import { products } from './data/products'
+import { assetUrl } from './assets'
 
 const sections = [
   { id: 'achadinhos', label: 'Achadinhos' },
@@ -113,7 +114,7 @@ function App() {
   return <>
     <div className="announcement"><span>Um mimo pra sua autoestima</span><span>Entre, a casa é sua</span><a href={store.instagramUrl} target="_blank" rel="noreferrer">{store.instagramHandle} ↗</a></div>
     <header className="site-header">
-      <a className="brand" href="#inicio" onClick={handleSectionNavigation} aria-label="Madame Rosa, início"><img src="/images/logo.jpg" alt="" /><span>Madame <i>Rosa</i></span></a>
+      <a className="brand" href="#inicio" onClick={handleSectionNavigation} aria-label="Madame Rosa, início"><img src={assetUrl('images/logo.jpg')} alt="" /><span>Madame <i>Rosa</i></span></a>
       <button className="menu-toggle" type="button" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? 'Fechar' : 'Menu'} <span>{menuOpen ? '×' : '☰'}</span></button>
       <nav className={menuOpen ? 'navigation open' : 'navigation'} aria-label="Navegação principal">
         {sections.map((section) => <a key={section.id} href={`#${section.id}`} onClick={handleSectionNavigation} aria-current={activeSection === section.id ? 'location' : undefined}>{section.label}</a>)}
@@ -130,7 +131,7 @@ function App() {
           <div className="hero-actions"><a className="button button-dark" href="#achadinhos" onClick={handleSectionNavigation}>Conheça a loja <span>↓</span></a><a className="simple-link" href={store.instagramUrl} target="_blank" rel="noreferrer">Acompanhe no Instagram ↗</a></div>
           <div className="hero-note"><span>♡</span><p>Escolhas lindas para<br /><strong>presentear ou se presentear.</strong></p></div>
         </div>
-        <div className="hero-visual"><div className="hero-image"><img src="/images/dando-uma-olhadinha.jpg" alt="Gatinha de óculos escuros espiando os produtos da loja" fetchPriority="high" /></div><div className="hero-caption"><span>O seu cantinho pink</span><b>Manaus, AM</b></div><span className="hero-seal" aria-hidden="true">feito<br />com<br /><i>carinho</i> ♡</span></div>
+        <div className="hero-visual"><div className="hero-image"><img src={assetUrl('images/dando-uma-olhadinha.jpg')} alt="Gatinha de óculos escuros espiando os produtos da loja" fetchPriority="high" /></div><div className="hero-caption"><span>O seu cantinho pink</span><b>Manaus, AM</b></div><span className="hero-seal" aria-hidden="true">feito<br />com<br /><i>carinho</i> ♡</span></div>
         <a className="scroll-cue" href="#achadinhos" onClick={handleSectionNavigation} aria-label="Role até os achadinhos"><span className="scroll-line" /> role para descobrir <span>↓</span></a>
       </section>
 
@@ -146,11 +147,11 @@ function App() {
         <p className="demo-note">Produtos e valores ilustrativos. Consulte disponibilidade e preço atual na loja.</p>
       </section>
 
-      <section className="story" id="sobre"><div className="story-inner"><div className="story-image"><img src="/images/gatinha.jpg" alt="A gatinha de óculos que acompanha a Madame Rosa" loading="lazy" /><span>Ela entende você. ♡</span></div><div className="story-copy"><p className="eyebrow">um lugar para se sentir bem</p><h2>Às vezes, tudo<br />que a gente precisa<br />é de <em>uma olhadinha.</em></h2><p>A Madame Rosa é aquele cantinho gostoso para encontrar beleza, autocuidado e presentes cheios de personalidade. Pode chegar no seu tempo. A gente adora receber você.</p><a className="text-arrow" href="#visite" onClick={handleSectionNavigation}>Venha conhecer de perto <span>→</span></a></div></div></section>
+      <section className="story" id="sobre"><div className="story-inner"><div className="story-image"><img src={assetUrl('images/gatinha.jpg')} alt="A gatinha de óculos que acompanha a Madame Rosa" loading="lazy" /><span>Ela entende você. ♡</span></div><div className="story-copy"><p className="eyebrow">um lugar para se sentir bem</p><h2>Às vezes, tudo<br />que a gente precisa<br />é de <em>uma olhadinha.</em></h2><p>A Madame Rosa é aquele cantinho gostoso para encontrar beleza, autocuidado e presentes cheios de personalidade. Pode chegar no seu tempo. A gente adora receber você.</p><a className="text-arrow" href="#visite" onClick={handleSectionNavigation}>Venha conhecer de perto <span>→</span></a></div></div></section>
 
-      <section className="instagram-section section-wrap" id="instagram"><div className="instagram-copy"><p className="eyebrow">a gente se encontra por lá</p><h2>Um pouco da loja<br />no seu <em>dia a dia.</em></h2><p>Novidades, ideias de presente e os bastidores da nossa lojinha, direto no seu feed.</p><a className="button button-outline" href={store.instagramUrl} target="_blank" rel="noreferrer">Seguir {store.instagramHandle} <span>↗</span></a></div><div className="social-gallery"><a href={store.instagramUrl} target="_blank" rel="noreferrer" className="social-tile social-tile-large"><img src="/images/inauguracao.jpg" alt="Arte de inauguração da Madame Rosa" loading="lazy" /><span>Um mimo espera por você</span></a><a href={store.instagramUrl} target="_blank" rel="noreferrer" className="social-tile social-tile-top"><img src="/images/ventiladores.jpg" alt="Ventiladores portáteis coloridos" loading="lazy" /></a><a href={store.instagramUrl} target="_blank" rel="noreferrer" className="social-tile social-tile-bottom"><img src="/images/garrafas.jpg" alt="Garrafas coloridas disponíveis na loja" loading="lazy" /></a><div className="gallery-stamp">novidade<br /><i>com carinho</i></div></div></section>
+      <section className="instagram-section section-wrap" id="instagram"><div className="instagram-copy"><p className="eyebrow">a gente se encontra por lá</p><h2>Um pouco da loja<br />no seu <em>dia a dia.</em></h2><p>Novidades, ideias de presente e os bastidores da nossa lojinha, direto no seu feed.</p><a className="button button-outline" href={store.instagramUrl} target="_blank" rel="noreferrer">Seguir {store.instagramHandle} <span>↗</span></a></div><div className="social-gallery"><a href={store.instagramUrl} target="_blank" rel="noreferrer" className="social-tile social-tile-large"><img src={assetUrl('images/inauguracao.jpg')} alt="Arte de inauguração da Madame Rosa" loading="lazy" /><span>Um mimo espera por você</span></a><a href={store.instagramUrl} target="_blank" rel="noreferrer" className="social-tile social-tile-top"><img src={assetUrl('images/ventiladores.jpg')} alt="Ventiladores portáteis coloridos" loading="lazy" /></a><a href={store.instagramUrl} target="_blank" rel="noreferrer" className="social-tile social-tile-bottom"><img src={assetUrl('images/garrafas.jpg')} alt="Garrafas coloridas disponíveis na loja" loading="lazy" /></a><div className="gallery-stamp">novidade<br /><i>com carinho</i></div></div></section>
 
-      <section className="visit" id="visite"><div className="visit-inner"><div className="visit-copy"><p className="eyebrow">seu próximo passeio</p><h2>Tem um mimo<br />esperando <em>por você.</em></h2><p>Venha conhecer a Madame Rosa de pertinho. Vai ser um prazer receber você.</p><p className="address"><span>⌖</span>{store.address}</p><a className="button button-dark" href={store.mapUrl} target="_blank" rel="noreferrer">Como chegar <span>↗</span></a></div><div className="visit-card"><img src="/images/Fachada%20da%20loja.jpg" alt="Fachada da loja Madame Rosa" loading="lazy" /><div><span>ANOTE AÍ</span><p>Rua Argentina, 436<br />Parque das Nações · Manaus</p></div></div></div></section>
+      <section className="visit" id="visite"><div className="visit-inner"><div className="visit-copy"><p className="eyebrow">seu próximo passeio</p><h2>Tem um mimo<br />esperando <em>por você.</em></h2><p>Venha conhecer a Madame Rosa de pertinho. Vai ser um prazer receber você.</p><p className="address"><span>⌖</span>{store.address}</p><a className="button button-dark" href={store.mapUrl} target="_blank" rel="noreferrer">Como chegar <span>↗</span></a></div><div className="visit-card"><img src={assetUrl('images/Fachada da loja.jpg')} alt="Fachada da loja Madame Rosa" loading="lazy" /><div><span>ANOTE AÍ</span><p>Rua Argentina, 436<br />Parque das Nações · Manaus</p></div></div></div></section>
 
       <section className="closing"><p className="eyebrow">seu próximo favorito está por aqui</p><h2>Um carinho<br /><em>em forma de mimo.</em></h2></section>
     </main>
@@ -163,7 +164,7 @@ function App() {
       </>}
     </dialog>
 
-    <footer className="footer"><a className="footer-brand" href="#inicio" onClick={handleSectionNavigation}><img src="/images/logo.jpg" alt="" /><span>Madame <i>Rosa</i></span></a><p>Beleza, cuidado e pequenas alegrias.<br />Feito com carinho em Manaus. ♡</p><div className="footer-links">{sections.map((section) => <a key={section.id} href={`#${section.id}`} onClick={handleSectionNavigation}>{section.label}</a>)}</div><div className="footer-bottom"><span>© {new Date().getFullYear()} Madame Rosa</span><a href="#inicio" onClick={handleSectionNavigation}>Voltar ao início ↑</a></div></footer>
+    <footer className="footer"><a className="footer-brand" href="#inicio" onClick={handleSectionNavigation}><img src={assetUrl('images/logo.jpg')} alt="" /><span>Madame <i>Rosa</i></span></a><p>Beleza, cuidado e pequenas alegrias.<br />Feito com carinho em Manaus. ♡</p><div className="footer-links">{sections.map((section) => <a key={section.id} href={`#${section.id}`} onClick={handleSectionNavigation}>{section.label}</a>)}</div><div className="footer-bottom"><span>© {new Date().getFullYear()} Madame Rosa</span><a href="#inicio" onClick={handleSectionNavigation}>Voltar ao início ↑</a></div></footer>
   </>
 }
 
